@@ -12,12 +12,6 @@ const firebaseConfig = {
   messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
   appId:import.meta.env.VITE_APPID,
 
-  /* apiKey: "AIzaSyDXqwfGMV_QGpkZDg13urcn-D_ZjHbQxGI",
-  authDomain: "bricks-universe.firebaseapp.com",
-  projectId: "bricks-universe",
-  storageBucket: "bricks-universe.appspot.com",
-  messagingSenderId: "898176883338",
-  appId: "1:898176883338:web:4c7a5765a84c0f3c6cab73" */
 };
 
 // Initialize Firebase
