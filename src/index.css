@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 
-.my-btn-container{
-@apply bg-white text-black px-2 py-2 rounded-lg
+.my-container{
+@apply w-full lg:w-10/12 mx-auto
 }
 .my-btn{
     @apply px-6 font-bold rounded py-2 text-white bg-[#ee5684] hover:bg-[#df396b] 

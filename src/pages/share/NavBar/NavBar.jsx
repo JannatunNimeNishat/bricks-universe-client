@@ -24,7 +24,7 @@ const NavBar = () => {
         <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/blogs'>Blogs</NavLink></li>
     </>
     return (
-        <div className="navbar  ">
+        <div className="navbar  my-container">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

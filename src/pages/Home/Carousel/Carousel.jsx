@@ -38,10 +38,8 @@ const Carousel = () => {
                                 <h3 className='text-5xl font-bold '>Go above and beyond</h3>
                                 <p className='mt-3'>Build your sense of adventure with the new Land Rover <br /> Classic Defender 90.</p>
 
-                                <button className='my-btn-container mt-3'>
-                                    <p className='my-btn-content'>
+                                <button className='my-btn mt-4'>
                                         Showp Now
-                                    </p>
                                 </button>
                                
                                   
@@ -57,10 +55,8 @@ const Carousel = () => {
                                 <h3 className='text-5xl font-bold '>Go above and beyond</h3>
                                 <p className='mt-3'>Build your sense of adventure with the new Land Rover <br /> Classic Defender 90.</p>
 
-                                <button className='my-btn-container mt-3'>
-                                    <p className='my-btn-content'>
+                                <button className='my-btn mt-4'>
                                         Showp Now
-                                    </p>
                                 </button>
                                
                                   
@@ -76,10 +72,8 @@ const Carousel = () => {
                                 <h3 className='text-5xl font-bold '>Go above and beyond</h3>
                                 <p className='mt-3'>Build your sense of adventure with the new Land Rover <br /> Classic Defender 90.</p>
 
-                                <button className='my-btn-container mt-3'>
-                                    <p className='my-btn-content'>
+                                <button className='my-btn mt-4'>
                                         Showp Now
-                                    </p>
                                 </button>
                                
                             </div>
