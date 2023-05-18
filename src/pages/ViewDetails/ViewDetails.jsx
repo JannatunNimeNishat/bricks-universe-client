@@ -6,7 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 
 const ViewDetails = () => {
     const toy = useLoaderData()
-    const { _id, img, toy_name, price, rating, description, sub_category } = toy || {};
+    const { _id, img, toy_name, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy || {};
     console.log(toy);
     return (
         <div className='mt-8 mb-8 my-container'>
@@ -19,13 +19,17 @@ const ViewDetails = () => {
                     <p className='text-[#ee5684] text-xl  font-semibold'>${price}</p>
                     <p>{description}</p>
                     {/* <div className='flex gap-3'> */}
+                    <p><small>Only {quantity} pieces left</small></p>
                     <input className='border-2 mr-5 py-1 px-2 w-1/6 rounded-lg' type="number" defaultValue={1} name="" id="" />
                     <button className='px-5 text-white font-bold hover:bg-[#df396b]  py-3 bg-[#ee5684] rounded-lg'>Buy now</button>
                     {/* </div> */}
                     <br />
-                    <br />
+                    
                     <p><span className='font-semibold '>Categories:</span> {(sub_category).split('_').join(" ")}</p>
+                    <p><span className='font-semibold '>Seller name:</span> {seller_name}</p>
+                    <p><span className='font-semibold '>Seller email:</span> {seller_email}</p>
                     <p><span className='font-semibold'>Product Id: </span>{_id}</p>
+
                 </div>
 
             </div>
