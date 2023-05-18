@@ -4,16 +4,16 @@ import app from '../firebase/firebase.config';
 export const AuthContext = createContext()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
-    const [loading, setLoading] = useState('true');
+    const [loading, setLoading] = useState(true);
     const auth = getAuth(app)
 
     const signUp = (email, password) => {
         console.log(email,password);
-        setLoading('true')
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const updateUserInformation = (currentUser, displayName, photoURL) => {
-        setLoading('true')
+        setLoading(true)
         return updateProfile(currentUser, {
             displayName: displayName,
             photoURL: photoURL
@@ -21,25 +21,29 @@ const AuthProvider = ({ children }) => {
     }
 
     const singIn = (email,password)=>{
-        setLoading('true')
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     const logOut = ()=>{
-        setLoading('true')
+        setLoading(true)
         return signOut(auth)
     }
 
     const googleProvider = new GoogleAuthProvider()
     const googleSignIn = ()=>{
-        setLoading('false')
+        setLoading(true)
         return signInWithPopup(auth,googleProvider)
     }
 
     useEffect(()=>{
         const unSubScribe = onAuthStateChanged(auth, currentUser=>{
-            setLoading('false')
+            setLoading(false)
             setUser(currentUser);
         })
+
+        return ()=>{
+            unSubScribe()
+        }
     })
     const authInfo = {
         user,
