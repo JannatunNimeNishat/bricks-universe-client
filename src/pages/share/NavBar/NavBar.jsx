@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const NavBar = () => {
-    const {user,logOut} = useContext(AuthContext)
-
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user);
     //logOut
-    const handleLogout =()=>{
+    const handleLogout = () => {
         logOut()
-        .then(()=>{
+            .then(() => {
 
-        })
-        .catch(()=>{
-            
-        })
+            })
+            .catch(() => {
+
+            })
     }
 
     const navItems = <>
@@ -49,9 +49,16 @@ const NavBar = () => {
             <div className="navbar-end  ">
                 {
                     user ?
-                    <Link onClick={handleLogout} to='/login' className="my-btn ">Logout</Link>
-                    :
-                    <Link to='/login' className="my-btn ">Login</Link>
+                        <>
+                            <Link onClick={handleLogout} to='/login' className="my-btn ">Logout</Link>
+                            <div className="avatar ml-2" title={user?.displayName}>
+                                <div className="w-12 h-10 rounded-full">
+                                    <img className='w-full h-full object-cover' src={user?.photoURL} />
+                                </div>
+                            </div>
+                        </>
+                        :
+                        <Link to='/login' className="my-btn ">Login</Link>
                 }
             </div>
         </div>

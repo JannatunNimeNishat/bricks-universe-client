@@ -9,7 +9,7 @@ const initialValue = {
 
 }
 const Login = () => {
-    const { singIn } = useContext(AuthContext);
+    const { singIn, googleSignIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState();
     const navigate = useNavigate();
     //formik
@@ -27,10 +27,21 @@ const Login = () => {
 
                 })
                 .catch(error => {
-                    console.log(error.message);
+                    setLoginError(error.message);
                 })
         }
     })
+
+    const handleGoogleSignIn = ()=>{
+        setLoginError('')
+        googleSignIn()
+        .then(()=>{
+
+        })
+        .then(error=>{
+            loginError(error.message)
+        })
+    }
 
     return (
         <div className='lg:h-[calc(100vh-76px)] md:flex justify-center mt-5'>
@@ -38,14 +49,14 @@ const Login = () => {
                 <h3 className='text-2xl font-semibold mt-3'>Sign Up</h3>
                 <form onSubmit={handleSubmit} className='mt-8 flex flex-col '>
                     <label >Email</label>
-                    <input className='border-2  rounded mt-1 pl-2 py-1' placeholder='Enter your email' type="email" name="email" id=""
+                    <input className='border-2  rounded mt-1 pl-2 py-1' placeholder='Enter your email' type="email" name="email"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
 
                     <label className='mt-3'>password</label>
-                    <input className='border-2 rounded mt-1 pl-2 py-1' placeholder='Enter your password' type="password" name="password" id=""
+                    <input className='border-2 rounded mt-1 pl-2 py-1' placeholder='Enter your password' type="password" name="password" 
                         value={values.password}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -53,12 +64,12 @@ const Login = () => {
 
                     <input className='mt-5 rounded py-2 text-white font-semibold bg-[#ee5684] hover:bg-[#df396b] cursor-pointer' type="submit" value="Login" />
                     {
-                        loginError && <p className='text-[#ee5684] mt-2 mb-1'><small>{loginError}</small></p>
+                        loginError && <p className='text-[#ee5684] mt-2 mb-1 text-center'><small>{loginError}</small></p>
                     }
                     <p className='mt-2 text-center'><small>Don't have an account ? <Link to='/register' className='font-semibold text-[#ee5684]'>Register</Link></small></p>
                 </form>
                 <div className="divider">OR</div>
-                <div className='mt-3 border-slate-300 border-2 py-2 rounded-xl flex cursor-pointer'>
+                <div onClick={handleGoogleSignIn} className='mt-3 border-slate-300 border-2 py-2 rounded-xl flex cursor-pointer'>
                     <FaGoogle className='h-6 w-6' />
                     <p className=' w-full text-center'>Continue with Google</p>
                 </div>

@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signUpSchema from '../../schema/YupValidation';
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -13,8 +13,8 @@ const initialValue = {
 }
 
 const Register = () => {
-    const {signUp,updateUserInformation} = useContext(AuthContext)
-    
+    const {signUp,updateUserInformation,googleSignIn} = useContext(AuthContext)
+    const navigate = useNavigate()
     const [registerError, setRegisterError] = useState();
     //formik to handle form 
     const { values, errors, handleBlur, handleSubmit, handleChange, touched } = useFormik({
@@ -36,9 +36,10 @@ const Register = () => {
                  updateUserInformation(currentUser,name,photoURL)
                 .then(()=>{
                     console.log('user updated successfully');
+                    navigate('/')
                 })
                 .then(error =>{
-                    // setRegisterError(error.message);
+                    setRegisterError(error.message);
                 })
                 console.log(result.user);
             })
@@ -50,6 +51,20 @@ const Register = () => {
             action.resetForm()
         }
     })
+
+    const handleGoogleSignIn = ()=>{
+        setRegisterError('')
+        googleSignIn()
+        .then(()=>{
+            navigate('/')
+        })
+        .then(error=>{
+            registerError(error.message)
+        })
+    }
+
+
+
     return (
         <div className=' md:flex justify-center mt-5 mb-5'>
         
@@ -113,12 +128,12 @@ const Register = () => {
 
                     <input className='mt-5 rounded py-2 text-white font-semibold bg-[#ee5684] hover:bg-[#df396b] cursor-pointer' type="submit" value="Register" />
                     {
-                        registerError &&  <p className='text-[#ee5684] mt-2 mb-1'><small>{registerError}</small></p>
+                        registerError &&  <p className='text-[#ee5684] mt-2 mb-1 text-center'><small>{registerError}</small></p>
                     }
                     <p className='mt-2 text-center'><small>Already have an account ? <Link to='/login' className='font-semibold text-[#ee5684]'>Login</Link></small></p>
                 </form>
                 <div className="divider">OR</div>
-                <div className='mt-3  border-slate-300 border-2 py-2 rounded-xl flex cursor-pointer'>
+                <div onClick={handleGoogleSignIn} className='mt-3  border-slate-300 border-2 py-2 rounded-xl flex cursor-pointer'>
                     <FaGoogle className='h-6 w-6' />
                     <p className=' w-full text-center'>Continue with Google</p>
                 </div>
