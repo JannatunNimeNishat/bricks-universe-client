@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
     const auth = getAuth(app)
 
     const signUp = (email, password) => {
-        console.log(email,password);
+        // console.log(email,password);
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }

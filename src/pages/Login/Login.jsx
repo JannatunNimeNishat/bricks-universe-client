@@ -18,11 +18,11 @@ const Login = () => {
         onSubmit: (values, action) => {
             const email = values.email;
             const password = values.password;
-            console.log(email, password);
+            // console.log(email, password);
             setLoginError('')
             singIn(email, password)
                 .then(result => {
-                    console.log(result.user);
+                    // console.log(result.user);
                     navigate('/')
 
                 })

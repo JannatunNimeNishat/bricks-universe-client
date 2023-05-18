@@ -35,16 +35,16 @@ const Register = () => {
 
                  updateUserInformation(currentUser,name,photoURL)
                 .then(()=>{
-                    console.log('user updated successfully');
+                    // console.log('user updated successfully');
                     navigate('/')
                 })
                 .then(error =>{
                     setRegisterError(error.message);
                 })
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch(error=>{
-                console.log(error);
+                // console.log(error);
                 setRegisterError(error.message) 
             })
 
