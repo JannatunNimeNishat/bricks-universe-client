@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Rating } from '@smastrom/react-rating'
-
+import { Link, useNavigate } from 'react-router-dom';
 import '@smastrom/react-rating/style.css'
+import { AuthContext } from '../../../provider/AuthProvider';
+
+import toast, { Toaster } from 'react-hot-toast';
+
 const TabItems = ({tabToy}) => {
-    console.log(tabToy);
+    
     const {_id,img,toy_name,price,rating} = tabToy || {};
+    
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const handleViewDetail = (_id)=>{
+        console.log(_id);
+        if(!user ){
+            toast.error('Please login first');
+            // navigate(`/login`)
+        }
+        else{
+
+            navigate(`/viewDetails/${_id}`)
+        }
+    }
+
+
     return (
         <div className="card card-compact lg:w-[450px] mx-auto lg:h-[450px]  bg-base-100 shadow-xl mt-5">
         <figure className='overflow-hidden w-full lg:h-[350px] border'><img className=' h-full w-full' src={img} alt="Shoes" /></figure>
@@ -19,9 +39,10 @@ const TabItems = ({tabToy}) => {
             <Rating className='text-center ml-2 mr-2' style={{ maxWidth: 100 }} value={Math.round(rating || 0)} readOnly />
             {rating}
             </p>
-            <div className="card-actions justify-end mt-3 pb-3">
-                <button className="btn bg-[#ee5684] border-0 w-full">View Details</button>
+            <div onClick={()=>handleViewDetail(_id)} className="card-actions justify-end mt-3 pb-3">
+                <Link  className="btn bg-[#ee5684] border-0 w-full">View Details</Link>
             </div>
+            <Toaster/>
             {/* </div> */}
         </div>
     </div>

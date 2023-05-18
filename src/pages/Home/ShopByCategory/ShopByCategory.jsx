@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TabItems from './TabItems';
-
+import { Link } from 'react-router-dom';
 const ShopByCategory = () => {
 
     const [categories, setCategories] = useState()
@@ -50,9 +50,10 @@ const ShopByCategory = () => {
                                 <Tab active className=' text-center w-full lg:w-1/4 mx-auto py-1 cursor-pointer'
                                     key={category._id}
                                 >
-                                    <a onClick={() => tabToy(category.category_name)} className=" text-xl font-semibold text-black"> {(category.category_name).split('_').join(" ")} </a>
+                                    <Link onClick={() => tabToy(category.category_name)} className=" text-xl font-semibold text-black"> {(category.category_name).split('_').join(" ")} </Link>
 
                                 </Tab>
+
 
                             ))
                         }
@@ -73,17 +74,7 @@ const ShopByCategory = () => {
                         }
                     </div>
                 </TabPanel>
-                {/* <TabPanel>
-                    <div className=' grid grid-cols-2 gap-5 px-14 '>
-                        {
-                        
-                                tabToys && tabToys?.map(tabToy =>
-                                    <TabItems key={tabToy._id} tabToy={tabToy}></TabItems>
-
-                                )
-                        }
-                    </div>
-                </TabPanel> */}
+               
                 <TabPanel>
                     <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 px-14'>
                         {
