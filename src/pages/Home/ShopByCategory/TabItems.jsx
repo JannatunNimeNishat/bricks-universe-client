@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const TabItems = ({tabToy}) => {
     
-    const {_id,img,toy_name,price,rating} = tabToy || {};
+    const {_id,photo,toy_name,price,rating} = tabToy || {};
     
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
@@ -27,7 +27,7 @@ const TabItems = ({tabToy}) => {
 
     return (
         <div className="card card-compact lg:w-[450px] mx-auto lg:h-[450px]  bg-base-100 shadow-xl mt-5">
-        <figure className='overflow-hidden w-full lg:h-[350px] border'><img className=' h-full w-full' src={img} alt="Shoes" /></figure>
+        <figure className='overflow-hidden w-full lg:h-[350px] border'><img className=' h-full w-full' src={photo} alt="Shoes" /></figure>
         <div className="card-body ">
             {/* <div className='px-3'> */}
             <h2 className="card-title text-2xl font-bold">{toy_name}</h2>

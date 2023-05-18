@@ -7,6 +7,8 @@ const AllToys = () => {
     // console.log(toys);
     return (
         <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
+            
+            {/* search box */}
             <div className=' flex justify-center '>
                 <div className="form-control">
                     <div className="input-group">
@@ -17,6 +19,7 @@ const AllToys = () => {
                     </div>
                 </div>
             </div>
+
             <div className="overflow-x-auto mt-10">
                 <table className="table w-full">
                     {/* head */}

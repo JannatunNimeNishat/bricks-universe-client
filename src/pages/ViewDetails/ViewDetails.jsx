@@ -6,13 +6,13 @@ import 'react-tabs/style/react-tabs.css';
 
 const ViewDetails = () => {
     const toy = useLoaderData()
-    const { _id, img, toy_name, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy || {};
+    const { _id, photo, toy_name, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy || {};
     console.log(toy);
     return (
         <div className='mt-8 mb-8 my-container'>
             <div className='grid grid-cols-2 gap-8'>
                 <div className=''>
-                    <img className='h-full w-full' src={img} alt="" />
+                    <img className='h-full w-full' src={photo} alt="" />
                 </div>
                 <div className='space-y-4'>
                     <h3 className='text-4xl font-semibold'>{toy_name}</h3>
