@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const NavBar = () => {
@@ -17,12 +17,11 @@ const NavBar = () => {
     }
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/allToys'>All Toys</Link></li>
-        <li><Link to='/myToys'>My Toys</Link></li>
-        <li><Link to='/addAToy'>Add a toy</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
-
+        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/'>Home</NavLink></li>
+        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/allToys'>All Toys</NavLink></li>
+        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/myToys'>My Toys</NavLink></li>
+        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/addAToy'>Add a toy</NavLink></li>
+        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/blogs'>Blogs</NavLink></li>
     </>
     return (
         <div className="navbar  ">

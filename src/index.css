@@ -9,3 +9,6 @@
 .my-btn{
     @apply px-6 font-bold rounded py-2 text-white bg-[#ee5684] hover:bg-[#df396b] 
 }
+.my-active{
+    @apply text-[#ee5684] font-semibold
+}
