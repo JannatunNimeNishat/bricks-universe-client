@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import MyToysRow from './MyToysRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const [myAddedToys,setMyAddedToys] = useState([])
@@ -12,6 +13,25 @@ const MyToys = () => {
             .then(data => setMyAddedToys(data))
    
     },[])
+    const handleDelateToy =(id)=>{
+       fetch(`http://localhost:5000/toy/${id}`,{
+        method:'DELETE'
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        if(data.deletedCount>0){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Toy has been updated',
+                showConfirmButton: false,
+                timer: 1500
+              }) 
+        }
+        const remainingToys = myAddedToys.filter(myAddedToy => myAddedToy._id !== id)
+        setMyAddedToys(remainingToys);
+       })
+    }
     return (
         <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
             
@@ -50,6 +70,7 @@ const MyToys = () => {
                                 key={myToy._id}
                                 myToy={myToy}
                                 index={index}
+                                handleDelateToy={handleDelateToy}
                             ></MyToysRow>)
                         }
 
