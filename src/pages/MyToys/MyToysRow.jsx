@@ -10,10 +10,10 @@ const MyToysRow = ({myToy,index}) => {
         <td>{seller_name}</td>
         <td>{toyName}</td>
         <td>{sub_category}</td>
-        <td>{price}</td>
+        <td>${price}</td>
         <td>{quantity}</td>
         <td >
-            <Link to={`/viewDetails/${_id}`} className=' bg-green-500 py-2  rounded-lg font-bold '>
+            <Link to={`/updateToy/${_id}`} className='  py-2  rounded-lg font-bold '>
             <FaEdit className='w-5 h-5'/>
             </Link>
         </td>
