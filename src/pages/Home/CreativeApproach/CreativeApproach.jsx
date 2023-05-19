@@ -8,19 +8,21 @@ import 'aos/dist/aos.css';
 const CreativeApproach = () => {
 
 
-    useEffect(()=>{
+    useEffect(() => {
         AOS.init();
-    },[])
+    }, [])
 
     return (
         <div className='mt-24  pb-16 bg-white'>
-            <div className='my-container grid grid-cols-1 lg:grid-cols-5 gap-10 py-10'>
+            <div className='my-container grid grid-cols-1 lg:grid-cols-5 lg:gap-10 py-10'>
 
-                <div className='col-span-2' >
-                    <img data-aos="fade-right"  className='rounded-xl ml-5 lg-ml-0 ' src={c1} alt="" />
+                <div className='col-span-2' data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom">
+                    <img className='rounded-xl  ' src={c1} alt="" />
                 </div>
 
-                <div className='col-span-3 ml-3 lg:ml-16' data-aos="fade-left">
+                <div className='col-span-3  lg:ml-16' data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom" >
                     <div className=''>
                         <p className='font-bold'>CREATIVE APPROACH</p>
                         <h3 className='text-5xl font-bold mt-5'>We help you take <br /> care of the kids</h3>
