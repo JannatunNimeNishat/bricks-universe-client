@@ -4,50 +4,97 @@ import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
 
 const MyToys = () => {
-    const [myAddedToys,setMyAddedToys] = useState([])
-    const {user} = useContext(AuthContext);
-    useEffect(()=>{
+    const [myAddedToys, setMyAddedToys] = useState([])
+    const { user } = useContext(AuthContext);
+    const [activeBtn, setActiveBtn] = useState(true);
 
+    //load initial data 
+    useEffect(() => {
         fetch(`http://localhost:5000/userAddedToys?seller_email=${user?.email}`)
             .then(res => res.json())
+            .then(data => {
+               
+                setMyAddedToys(data)
+            })
+    }, [])
+
+
+    //delete
+    const handleDelateToy = (id) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/toy/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                        const remainingToys = myAddedToys.filter(myAddedToy => myAddedToy._id !== id)
+                        setMyAddedToys(remainingToys);
+                    })
+
+            }
+        })
+
+        // 
+
+    }
+
+    const handleSortByPrice = (flag) => {
+       
+        setActiveBtn(!activeBtn)
+        fetch(`http://localhost:5000/toyPriceWise?seller_email=${user?.email}`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ tag: flag })
+        })
+            .then(res => res.json())
             .then(data => setMyAddedToys(data))
-   
-    },[])
-    const handleDelateToy =(id)=>{
-       fetch(`http://localhost:5000/toy/${id}`,{
-        method:'DELETE'
-       })
-       .then(res=>res.json())
-       .then(data=>{
-        if(data.deletedCount>0){
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Toy has been updated',
-                showConfirmButton: false,
-                timer: 1500
-              }) 
-        }
-        const remainingToys = myAddedToys.filter(myAddedToy => myAddedToy._id !== id)
-        setMyAddedToys(remainingToys);
-       })
+
+
     }
     return (
         <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
-            
-            {/* search box */}
-            {/* <div className=' flex justify-center '>
-                <div className="form-control">
-                    <div className="input-group">
-                        <input type="text" placeholder="Search…" className="input input-bordered" />
-                        <button className="btn btn-square">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                        </button>
-                    </div>
-                </div>
-            </div> */}
+            <div>
+                <p className='text-xl font-semibold'>Sort by price:</p>
 
-            <div className="overflow-x-auto mt-10">
+                <button
+                    className={`mt-6 ${activeBtn === true ? 'my-sort-btn' : ''}`}
+                    onClick={() => handleSortByPrice(1)}>
+                    Low to high
+                </button>
+
+                <button 
+                 className={` ml-2 mt-6 ${activeBtn === false ? 'my-sort-btn' : ''}`}
+                 onClick={() => handleSortByPrice(-1)} 
+                 
+                 >
+                    
+                    High to low</button>
+
+
+            </div>
+
+
+            <div className="overflow-x-auto mt-8">
                 <table className="table w-full">
                     {/* head */}
                     <thead>

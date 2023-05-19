@@ -12,3 +12,7 @@
 .my-active{
     @apply text-[#ee5684] font-semibold
 }
+
+.my-sort-btn{
+    @apply px-2 py-2 bg-red-500 rounded-lg text-white
+}
