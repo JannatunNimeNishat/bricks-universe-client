@@ -7,7 +7,8 @@ import { FaArrowLeft } from "react-icons/fa";
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-
+//helmet
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const AddaToy = () => {
 
     const { user } = useContext(AuthContext)
@@ -39,15 +40,7 @@ const AddaToy = () => {
             const quantity = values.quantity;
             const description = values.description;
 
-            /* console.log(photo,
-                tName,
-                seller_name,
-                seller_email,
-                sub_category,
-                price,
-                rating,
-                quantity,
-                description); */
+            
             const newToy = { photo,toyName,seller_name,seller_email,sub_category,price,rating,quantity,description };
                 console.log(newToy);
             //send data to the server
@@ -77,6 +70,10 @@ const AddaToy = () => {
     })
 
     return (
+        <HelmetProvider>
+            <Helmet>
+                <title>Add a Toys</title>
+            </Helmet>
         <div className=' bg-cover bg-center pb-8'
         >
             <div className='my-container pt-5 mb-3'>
@@ -193,6 +190,7 @@ const AddaToy = () => {
                 </div>
             </div>
         </div>
+        </HelmetProvider>
     );
 };
 

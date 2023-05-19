@@ -14,12 +14,12 @@ const MyToysRow = ({myToy,index,handleDelateToy}) => {
         <td>{quantity}</td>
         <td >
             <Link to={`/updateToy/${_id}`} className='  py-2  rounded-lg font-bold '>
-            <FaEdit className='w-5 h-5'/>
+            <FaEdit className='w-5 h-5 mx-auto'/>
             </Link>
         </td>
-        <td >
-            <Link   className=' text-red-500 py-2  rounded-lg font-bold '>
-           <FaTrash onClick={()=>handleDelateToy(_id)} className='w-5 h-5' />
+        <td className=''>
+            <Link   className=' text-red-500 py-2  rounded-lg font-bold'>
+           <FaTrash onClick={()=>handleDelateToy(_id)} className='w-5 h-5 mx-auto' />
             </Link>
         </td>
     </tr>

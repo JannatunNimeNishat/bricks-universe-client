@@ -3,12 +3,17 @@ import { useLoaderData } from 'react-router-dom';
 //tab
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
+//helmet
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const ViewDetails = () => {
     const toy = useLoaderData()
     const { _id, photo, toy_name, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy || {};
     console.log(toy);
     return (
+        <HelmetProvider>
+            <Helmet>
+                <title>View details</title>
+            </Helmet>
         <div className='mt-8 mb-8 my-container'>
             <div className='grid grid-cols-2 gap-8'>
                 <div className=''>
@@ -79,6 +84,7 @@ const ViewDetails = () => {
                 </Tabs>
             </div>
         </div >
+        </HelmetProvider>
     );
 };
 

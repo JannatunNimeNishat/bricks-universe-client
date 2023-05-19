@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
-
+//helmet
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 const MyToys = () => {
     const [myAddedToys, setMyAddedToys] = useState([])
     const { user } = useContext(AuthContext);
@@ -72,6 +73,10 @@ const MyToys = () => {
 
     }
     return (
+        <HelmetProvider>
+            <Helmet>
+                <title>My Toys</title>
+            </Helmet>
         <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
             <div>
                 <p className='text-xl font-semibold'>Sort by price:</p>
@@ -99,14 +104,14 @@ const MyToys = () => {
                     {/* head */}
                     <thead>
                         <tr className='text-center'>
-                            <th></th>
+                            <th>#</th>
                             <th>Seller</th>
                             <th>Toy Name</th>
                             <th>Sub-category</th>
                             <th>Price</th>
                             <th>Available Quantity</th>
-                            <th></th>
-                            <th></th>
+                            <th>Edit</th>
+                            <th>Delete</th>
 
                         </tr>
                     </thead>
@@ -126,6 +131,7 @@ const MyToys = () => {
                 </table>
             </div>
         </div>
+        </HelmetProvider>
     );
 };
 
