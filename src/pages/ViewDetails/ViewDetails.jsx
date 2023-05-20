@@ -5,10 +5,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 //helmet
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import RelatedProducts from './RelatedProducts';
 const ViewDetails = () => {
     const toy = useLoaderData()
-    const { _id, photo, toy_name, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy || {};
-    console.log(toy);
+    const { _id, photo, toyName, price, rating, description, sub_category,seller_name,seller_email,quantity } = toy ;
+   
     return (
         <HelmetProvider>
             <Helmet>
@@ -16,11 +17,19 @@ const ViewDetails = () => {
             </Helmet>
         <div className='mt-8 mb-8 my-container'>
             <div className='grid grid-cols-2 gap-8'>
-                <div className=''>
-                    <img className='h-full w-full' src={photo} alt="" />
+                <div className='w-full h-full flex flex-col gap-5'>
+                    
+                    <img className='w-full   ease-in duration-500' src={photo} alt="" />
+                    <div className='grid grid-cols-3 gap-4 mt-8'>
+                        <div className=' '>
+                        <img className='px-3 py-3' src={photo} alt="" />
+                        </div>
+                        <img className='px-3 py-3 brightness-50 hover:brightness-75 ease-in duration-75 cursor-pointer' src={photo} alt="" />
+                        <img className='px-3 py-3 brightness-50 hover:brightness-75 cursor-pointer ease-in duration-75' src={photo} alt="" />
+                    </div>
                 </div>
                 <div className='space-y-4'>
-                    <h3 className='text-4xl font-semibold'>{toy_name}</h3>
+                    <h3 className='text-4xl font-semibold'>{toyName}</h3>
                     <p className='text-[#ee5684] text-xl  font-semibold'>${price}</p>
                     <p>{description}</p>
                     {/* <div className='flex gap-3'> */}
@@ -30,7 +39,7 @@ const ViewDetails = () => {
                     {/* </div> */}
                     <br />
                     
-                    <p><span className='font-semibold '>Categories:</span> {(sub_category).split('_').join(" ")}</p>
+                    <p><span className='font-semibold '>Categories:</span> {(sub_category)}</p>
                     <p><span className='font-semibold '>Seller name:</span> {seller_name}</p>
                     <p><span className='font-semibold '>Seller email:</span> {seller_email}</p>
                     <p><span className='font-semibold'>Product Id: </span>{_id}</p>
@@ -58,7 +67,7 @@ const ViewDetails = () => {
                                 <p>There are no reviews yet.</p>
                             </div>
                             <div className='space-y-3'>
-                                <h3 className='text-3xl font-bold'>Be the first to review "{toy_name}"</h3>
+                                <h3 className='text-3xl font-bold'>Be the first to review "{toyName}"</h3>
                                 <p>Your email address will not be published. Required fields are marked *</p>
                                 <form className=''>
                                     <p className='font-bold'>Name *</p>
@@ -83,6 +92,7 @@ const ViewDetails = () => {
 
                 </Tabs>
             </div>
+            <RelatedProducts className='mt-5' sub_category={sub_category} ></RelatedProducts>
         </div >
         </HelmetProvider>
     );

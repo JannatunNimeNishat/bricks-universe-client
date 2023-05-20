@@ -74,11 +74,11 @@ const AddaToy = () => {
             <Helmet>
                 <title>Add a Toys</title>
             </Helmet>
-        <div className=' bg-cover bg-center pb-8'
+        <div className=' bg-cover bg-center mb-20'
         >
-            <div className='my-container pt-5 mb-3'>
+            <div className='my-container pt-5  '>
 
-                <div className='bg-slate-200  pt-3 px-5 py-5 '>
+                <div className='bg-slate-200  pt-8 px-5 pb-8 '>
                     <div className='px-20 '>
                         <h3 className='text-3xl mt-5'>Add a toy</h3>
 
@@ -105,7 +105,7 @@ const AddaToy = () => {
                             <br />
                             <br />
 
-                            <div className='flex gap-3'>
+                            {/* <div className='flex gap-3'> */}
 
                                 <input type="text"
                                     name='seller_name'
@@ -117,7 +117,8 @@ const AddaToy = () => {
                                
                                 />
 
-
+        <br />
+        <br />
 
                                 <input type="email" name='seller_email' placeholder="Enter seller email" className="input input-bordered w-full"
                                     value={values.seller_email}
@@ -127,10 +128,11 @@ const AddaToy = () => {
                                 />
 
 
-                            </div>
+                            {/* </div> */}
                             <br />
-                            <div className='flex gap-3 '>
-                                <select className="select select-bordered w-1/2"
+                            <br />
+                            {/* <div className='flex gap-3 '> */}
+                                <select className="select select-bordered w-full"
                                 name='sub_category'
                                     value={values.sub_category}
                                     onBlur={handleBlur}
@@ -142,17 +144,19 @@ const AddaToy = () => {
                                     <option value='lego_city' label="lego_city">Lego city</option>
 
                                 </select>
-
+                                <br />
+                                <br />
                                 <input className='input input-bordered w-full' placeholder='Enter the price of your toy' type="number" name='price'
                                     value={values.price}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                 />
-                            </div>
+                            {/* </div> */}
 
                             <br />
-                            <div className='flex '>
-                                <div className="form-control md:w-1/2">
+                            <br />
+                            {/* <div className='flex '> */}
+                                <div className="form-control ">
 
 
                                     <input type="text" name='rating' placeholder="Enter rating" className="input input-bordered w-full"
@@ -163,7 +167,8 @@ const AddaToy = () => {
                                     />
 
                                 </div>
-                                <div className="form-control md:w-1/2 ml-4">
+                                <br />
+                                <div className="form-control  ">
 
 
                                     <input type="number" name='quantity' placeholder="Enter the quantity of this toy" className="input input-bordered w-full"
@@ -173,7 +178,7 @@ const AddaToy = () => {
                                     />
 
                                 </div>
-                            </div>
+                            {/* </div> */}
                             <br />
                             <div>
                                 <textarea placeholder='Write detail description of your toy' className=' p-2 w-full' name="description" id="" cols="30" rows="5"

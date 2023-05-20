@@ -9,8 +9,8 @@ const ShopByCategory = () => {
     const [categories, setCategories] = useState()
     const [tabToys, setTabToys] = useState();
 
-   
-    
+
+
 
     //loading category
     useEffect(() => {
@@ -31,7 +31,7 @@ const ShopByCategory = () => {
     //after each tab click
     const tabToy = (category_name) => {
         setTabToys();
-      
+
         fetch(`https://bricks-universe-server.vercel.app/toys?sub_category=${category_name}`)
             .then(res => res.json())
             .then(data => {
@@ -58,7 +58,7 @@ const ShopByCategory = () => {
 
                     <div className="tabs tabs-boxed bg-[#ee5684]  py-3">
                         {
-                          categories &&  categories?.map(category => (
+                            categories && categories?.map(category => (
                                 <Tab active className=' text-center w-full lg:w-1/4 mx-auto py-1 cursor-pointer'
                                     key={category._id}
                                 >
@@ -76,9 +76,10 @@ const ShopByCategory = () => {
 
                 <TabPanel>
                     {
-                      
-                            tabToys ? 
+
+                        tabToys ?
                             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 px-14'>
+
                                 {
                                     tabToys && tabToys?.map(tabToy =>
                                         <TabItems key={tabToy._id} tabToy={tabToy}></TabItems>
@@ -93,8 +94,8 @@ const ShopByCategory = () => {
 
                 <TabPanel>
                     {
-                        
-                            tabToys ?
+
+                        tabToys ?
                             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 px-14'>
                                 {
                                     tabToys && tabToys?.map(tabToy =>
@@ -109,7 +110,7 @@ const ShopByCategory = () => {
                 </TabPanel>
                 <TabPanel>
                     {
-                            tabToys ?
+                        tabToys ?
                             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 px-14'>
                                 {
                                     tabToys && tabToys?.map(tabToy =>

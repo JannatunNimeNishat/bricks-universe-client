@@ -13,17 +13,34 @@ const TabItems = ({ tabToy }) => {
 
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    const handleViewDetail = (_id) => {
-        console.log(_id);
+    //
+
+
+
+
+   /*  const handleViewDetail = (_id) => {
+
         if (!user) {
-            toast.error('Please login first');
-            // navigate(`/login`)
+         
+
+            toast.error('Please login first', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+            navigate(`/login`)
         }
         else {
 
             navigate(`/viewDetails/${_id}`)
         }
-    }
+    } */
 
 
     return (
@@ -47,8 +64,9 @@ const TabItems = ({ tabToy }) => {
                     <Rating className='text-center ml-2 mr-2' style={{ maxWidth: 100 }} value={Math.round(rating || 0)} readOnly />
                     {rating}
                 </p>
-                <div onClick={() => handleViewDetail(_id)} className="card-actions justify-end mt-3 pb-3">
-                    <Link className="btn bg-[#ee5684] border-0 w-full">View Details</Link>
+                {/* <div onClick={() => handleViewDetail(_id)} className="card-actions justify-end mt-3 pb-3"> */}
+                <div  className="card-actions justify-end mt-3 pb-3">
+                    <Link to={`/viewDetails/${_id}`} className="btn bg-[#ee5684] border-0 w-full">View Details</Link>
                 </div>
                 <Toaster />
                 {/* </div> */}
@@ -57,4 +75,4 @@ const TabItems = ({ tabToy }) => {
     );
 };
 
-export default TabItems; 4
+export default TabItems; 

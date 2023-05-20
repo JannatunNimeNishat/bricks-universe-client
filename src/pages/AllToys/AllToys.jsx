@@ -71,7 +71,7 @@ const AllToys = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                toys?.map((toy, index) => <ToyRows
+                              toys &&  toys?.map((toy, index) => <ToyRows
                                     key={toy._id}
                                     toy={toy}
                                     index={index}
