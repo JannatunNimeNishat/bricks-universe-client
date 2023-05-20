@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
-import mainLogo from '../../../assets/mainLogo.png'
+
 import mainLogo_bg from '../../../assets/mainLogo_removebg.png'
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -54,9 +54,9 @@ const NavBar = () => {
                     user ?
                         <>
                             <Link onClick={handleLogout} to='/login' className="my-btn ">Logout</Link>
-                            <div className="avatar ml-2" title={user?.displayName}>
+                            <div className="avatar ml-5" title={user?.displayName}>
                                 <div className="w-12 h-10 rounded-full">
-                                    <img className='w-full h-full object-cover' src={user?.photoURL} />
+                                    <img className='w-full h-full object-cover ' src={user?.photoURL} />
                                 </div>
                             </div>
                         </>

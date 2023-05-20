@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body,
+html {
+   
+    font-family: 'Rubik', sans-serif;
+}
 .my-container{
 @apply w-full lg:w-10/12 mx-auto
 }
@@ -12,7 +16,9 @@
 .my-active{
     @apply text-[#ee5684] font-semibold
 }
-
+.my-primary-color{
+    @apply text-[#181d4e]
+}
 .my-sort-btn{
     @apply px-2 py-2 bg-red-500 rounded-lg text-white
 }

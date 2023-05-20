@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const TabItems = ({tabToy}) => {
     
-    const {_id,photo,toy_name,price,rating} = tabToy || {};
+    const {_id,photo,toyName,price,rating} = tabToy || {};
     
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
@@ -26,11 +26,15 @@ const TabItems = ({tabToy}) => {
 
 
     return (
-        <div className="card card-compact lg:w-[450px] mx-auto lg:h-[450px]  bg-base-100 shadow-xl mt-5">
-        <figure className='overflow-hidden w-full lg:h-[350px] border'><img className=' h-full w-full' src={photo} alt="Shoes" /></figure>
+        // <div className="card card-compact lg:w-[450px] mx-auto lg:h-[450px]  bg-base-100 shadow-xl mt-5">
+        <div className="card card-compact   bg-base-100 shadow-xl mt-5">
+        <figure className='overflow-hidden lg:h-[300px] rounded-2xl'>
+        {/* <figure className='overflow-hidden w-full lg:h-[350px] border'> */}
+            <img className='px-6 py-6 h-full w-full rounded-xl' src={photo} alt="Shoes" />
+        </figure>
         <div className="card-body ">
             {/* <div className='px-3'> */}
-            <h2 className="card-title text-2xl font-bold">{toy_name}</h2>
+            <h2 className="card-title text-2xl font-bold">{toyName}</h2>
             <p className='font-semibold'>Price: ${price}</p>
 
 

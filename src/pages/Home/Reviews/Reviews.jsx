@@ -19,7 +19,7 @@ const Reviews = () => {
                 <div className='my-container grid grid-cols-1 lg:grid-cols-3 gap-8 py-20  '>
                     <div className='text-white lg:flex items-center'>
                         <div className=''>
-                            <h4 >TESTIMONIALS</h4>
+                            <h4 className='my-active'>TESTIMONIALS</h4>
                             <h3 className='text-4xl font-bold mt-3'>What Our Clients Say About Us</h3>
                             <p className='mt-3'>We appreciate your kind and honest feedback and invite you to our amazing store.</p>
                             <button className='my-btn mt-5'>About Us</button>

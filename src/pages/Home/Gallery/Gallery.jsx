@@ -5,7 +5,7 @@ import g3 from '../../../assets/img/g3.jpg'
 import g4 from '../../../assets/img/g4.jpg'
 const Gallery = () => {
     return (
-        <div className='my-container lg:h-[100vh]     grid grid-cols-1 lg:grid-cols-3 gap-5 mt-12 mb-8'>
+        <div className=' my-container lg:h-[100vh]     grid grid-cols-1 lg:grid-cols-3 gap-5 mt-36 mb-8'>
             <div className='lg:flex flex-col gap-5 lg:h-[100vh]'>
                 <div className='overflow-hidden h-1/2 relative hover:opacity-75 transition duration-200'>
                     <img className='w-full h-full object-cover ' src={g1_} alt="" />

@@ -32,7 +32,7 @@ const Carousel = () => {
             >
                 <SwiperSlide>
                    
-                    <div className='h-[calc(90vh-64px)]  bg-cover bg-center' style={{ backgroundImage: `url("${banner1}")` }}>
+                    <div className='h-[calc(100vh-64px)]  bg-cover bg-center' style={{ backgroundImage: `url("${banner1}")` }}>
                         <div className='absolute top-0 bottom-0 flex items-center  bg-gradient-to-r from-[#0b0a0a] to-[rgba(21, 21, 21, 1)] '>
                             <div className='pl-24 text-white  '>
                                 <h3 className='text-5xl font-bold '>Go above and beyond</h3>
