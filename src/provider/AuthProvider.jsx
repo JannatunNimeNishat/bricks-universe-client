@@ -39,6 +39,29 @@ const AuthProvider = ({ children }) => {
         const unSubScribe = onAuthStateChanged(auth, currentUser=>{
             setLoading(false)
             setUser(currentUser);
+            //jwt token
+            if(currentUser && currentUser.email){
+                //console.log('jwt',currentUser);
+                const useInfo = {
+                    email:currentUser.email
+                }
+
+                fetch('http://localhost:5000/jwt',{
+                    method: 'POST',
+                    headers:{
+                        'content-type': 'application/json' //
+                    },
+                    body: JSON.stringify(useInfo)
+                })
+                .then(res=>res.json())
+                .then(data =>{
+                    
+                    localStorage.setItem('bricks-universe',data.token)
+                })
+            }
+            else{
+                localStorage.removeItem('bricks-universe')
+            }
         })
 
         return ()=>{
