@@ -12,10 +12,15 @@ const MyToys = () => {
 
     //load initial data 
     useEffect(() => {
-        fetch(`http://localhost:5000/userAddedToys?seller_email=${user?.email}`)
+        fetch(`http://localhost:5000/userAddedToys?seller_email=${user?.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('bricks-universe')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
-               
+
                 setMyAddedToys(data)
             })
     }, [])
@@ -78,66 +83,66 @@ const MyToys = () => {
             <Helmet>
                 <title>My Toys</title>
             </Helmet>
-        <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
-            <div>
-                <p className='text-xl font-semibold'>Sort by price:</p>
+            <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
+                <div>
+                    <p className='text-xl font-semibold'>Sort by price:</p>
 
-                <button
-                    className={`mt-6 ${activeBtn === true ? 'my-sort-btn' : ''}`}
-                    onClick={() => handleSortByPrice(1)}>
-                    Low to high
-                </button>
+                    <button
+                        className={`mt-6 ${activeBtn === true ? 'my-sort-btn' : ''}`}
+                        onClick={() => handleSortByPrice(1)}>
+                        Low to high
+                    </button>
 
-                <button 
-                 className={` ml-2 mt-6 ${activeBtn === false ? 'my-sort-btn' : ''}`}
-                 onClick={() => handleSortByPrice(-1)} 
-                 
-                 >
-                    
-                    High to low</button>
+                    <button
+                        className={` ml-2 mt-6 ${activeBtn === false ? 'my-sort-btn' : ''}`}
+                        onClick={() => handleSortByPrice(-1)}
+
+                    >
+
+                        High to low</button>
 
 
+                </div>
+
+
+                {
+                    myAddedToys ?
+                        <div className="overflow-x-auto mt-8">
+                            <table className="table w-full">
+                                {/* head */}
+                                <thead>
+                                    <tr className='text-center'>
+                                        <th>#</th>
+                                        <th>Seller</th>
+                                        <th>Toy Name</th>
+                                        <th>Sub-category</th>
+                                        <th>Price</th>
+                                        <th>Available Quantity</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* row 1 */}
+                                    {
+                                        myAddedToys?.map((myToy, index) => <MyToysRow
+                                            key={myToy._id}
+                                            myToy={myToy}
+                                            index={index}
+                                            handleDelateToy={handleDelateToy}
+                                        ></MyToysRow>)
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        :
+                        <Loading className='-mt-20'></Loading>
+
+                }
             </div>
-
-
-            {
-                myAddedToys ?
-                <div className="overflow-x-auto mt-8">
-                <table className="table w-full">
-                    {/* head */}
-                    <thead>
-                        <tr className='text-center'>
-                            <th>#</th>
-                            <th>Seller</th>
-                            <th>Toy Name</th>
-                            <th>Sub-category</th>
-                            <th>Price</th>
-                            <th>Available Quantity</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* row 1 */}
-                        {
-                            myAddedToys?.map((myToy, index) => <MyToysRow
-                                key={myToy._id}
-                                myToy={myToy}
-                                index={index}
-                                handleDelateToy={handleDelateToy}
-                            ></MyToysRow>)
-                        }
-
-
-                    </tbody>
-                </table>
-            </div>
-            :
-            <Loading className='-mt-20'></Loading>
-
-            }
-        </div>
         </HelmetProvider>
     );
 };

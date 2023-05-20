@@ -28,11 +28,11 @@ const Login = () => {
             singIn(email, password)
                 .then(result => {
                     // console.log(result.user);
-                   // navigate(from, {replace:true})
+                   navigate(from, {replace:true})
 
                 })
                 .catch(error => {
-                    // setLoginError(error.message);
+                    setLoginError(error.message);
                 })
         }
     })
@@ -41,10 +41,10 @@ const Login = () => {
         setLoginError('')
         googleSignIn()
         .then(()=>{
-            //navigate(from, {replace:true})
+            navigate(from, {replace:true})
         })
         .then(error=>{
-            // loginError(error.message)
+            loginError(error.message)
         })
     }
 
