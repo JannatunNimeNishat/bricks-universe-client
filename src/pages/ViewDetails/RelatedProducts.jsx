@@ -31,11 +31,12 @@ const RelatedProducts = ({ sub_category }) => {
                         <figure className='h-2/4 mt-3'>
                             <img className='w-full h-full' src={relatedProduct.photo} alt="Shoes" />
                             </figure>
-                        <div className="card-body mt-3">
+                        <div className=" space-y-5 mt-5">
+                        {/* <div className="card-body mt-3"> */}
                             <h2 className="card-title">{relatedProduct.toyName}</h2>
                             <p>Price: ${relatedProduct.price}</p>
                             
-                                <Link to={`/viewDetails/${relatedProduct._id}`} className="btn btn-primary">View Details</Link>
+                                <Link to={`/viewDetails/${relatedProduct._id}`} className="btn btn-primary bg-[#ee5684] hover:bg-[#df396b] border-0">View Details</Link>
                            
                         </div>
                     </div>

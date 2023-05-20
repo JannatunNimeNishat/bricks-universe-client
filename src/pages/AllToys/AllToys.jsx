@@ -6,15 +6,20 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 const AllToys = () => {
     //loading all toys in route loader
     const allToys = useLoaderData()
+    // console.log(object);
     const [toys, setToys] = useState(allToys)
 
 
     const [searchInput, setSearchInput] = useState("")
 
     useEffect(() => {
-        fetch(`https://bricks-universe-server.vercel.app/searchAllToys/${searchInput}`)
+
+        if(searchInput){
+            fetch(`https://bricks-universe-server.vercel.app/searchAllToys/${searchInput}`,)
             .then(res => res.json())
             .then(data => setToys(data))
+        }
+        
     }, [searchInput])
 
 
@@ -71,7 +76,7 @@ const AllToys = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                              toys &&  toys?.map((toy, index) => <ToyRows
+                                toys?.map((toy, index) => <ToyRows
                                     key={toy._id}
                                     toy={toy}
                                     index={index}

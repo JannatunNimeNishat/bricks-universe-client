@@ -1,0 +1,22 @@
+.swiper-container {
+    /* width: 480px; */
+    /* width: 1280px; */
+    width: 1000px;
+  }
+  
+  @media screen and (min-width: 640px) {
+    .swiper-container {
+     width: 640px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .swiper-container {
+     width: 768px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .swiper-container {
+     width: 1280px;
+    }
+  }

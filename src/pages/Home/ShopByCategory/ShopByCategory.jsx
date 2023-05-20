@@ -108,7 +108,7 @@ const ShopByCategory = () => {
                             <Loading></Loading>
                     }
                 </TabPanel>
-                <TabPanel>
+            <TabPanel>
                     {
                         tabToys ?
                             <div className=' grid grid-cols-1 lg:grid-cols-2 gap-5 px-14'>
