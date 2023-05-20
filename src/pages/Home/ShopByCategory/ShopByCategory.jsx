@@ -22,6 +22,7 @@ const ShopByCategory = () => {
 
     //initial load action figure
     useEffect(() => {
+        setTabToys()
         fetch('http://localhost:5000/toys?sub_category=lego_action_figure')
             .then(res => res.json())
             .then(data => setTabToys(data))

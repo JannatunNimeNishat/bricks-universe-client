@@ -2,6 +2,8 @@ import { useFormik } from 'formik';
 import React, { useContext, useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+//helmet
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../provider/AuthProvider';
 const initialValue = {
     email: '',
@@ -47,6 +49,10 @@ const Login = () => {
     }
 
     return (
+        <HelmetProvider>
+            <Helmet>
+                <title>BricksUniverse | Login</title>
+            </Helmet>
         <div className='lg:h-[calc(100vh-76px)] md:flex justify-center mt-5'>
             <div className='bg-slate-200 lg:w-96 lg:h-[450px] px-12 lg:px-8 py-3 rounded'>
                 <h3 className='text-2xl font-semibold mt-3'>Sign Up</h3>
@@ -78,6 +84,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+        </HelmetProvider>
     );
 };
 

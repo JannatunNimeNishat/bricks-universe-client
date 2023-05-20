@@ -18,11 +18,11 @@ const NavBar = () => {
     }
 
     const navItems = <>
-        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/'>Home</NavLink></li>
-        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/allToys'>All Toys</NavLink></li>
-        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/myToys'>My Toys</NavLink></li>
-        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/addAToy'>Add a toy</NavLink></li>
-        <li><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/blogs'>Blogs</NavLink></li>
+        <li className='hover:underline'><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/'>Home</NavLink></li>
+        <li className='hover:underline'><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/allToys'>All Toys</NavLink></li>
+        <li className='hover:underline '><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/myToys'>My Toys</NavLink></li>
+        <li className='hover:underline'><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/addAToy'>Add a toy</NavLink></li>
+        <li className='hover:underline'><NavLink className={({isActive}) => isActive ? 'my-active' : ''} to='/blogs'>Blogs</NavLink></li>
     </>
     return (
         <div className="navbar  my-container">

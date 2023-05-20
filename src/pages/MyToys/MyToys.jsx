@@ -4,8 +4,9 @@ import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
 //helmet
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Loading from '../Loading/Loading';
 const MyToys = () => {
-    const [myAddedToys, setMyAddedToys] = useState([])
+    const [myAddedToys, setMyAddedToys] = useState()
     const { user } = useContext(AuthContext);
     const [activeBtn, setActiveBtn] = useState(true);
 
@@ -58,7 +59,7 @@ const MyToys = () => {
     }
 
     const handleSortByPrice = (flag) => {
-       
+        setMyAddedToys()
         setActiveBtn(!activeBtn)
         fetch(`http://localhost:5000/toyPriceWise?seller_email=${user?.email}`, {
             method: 'POST',
@@ -99,7 +100,9 @@ const MyToys = () => {
             </div>
 
 
-            <div className="overflow-x-auto mt-8">
+            {
+                myAddedToys ?
+                <div className="overflow-x-auto mt-8">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -130,6 +133,10 @@ const MyToys = () => {
                     </tbody>
                 </table>
             </div>
+            :
+            <Loading className='-mt-20'></Loading>
+
+            }
         </div>
         </HelmetProvider>
     );

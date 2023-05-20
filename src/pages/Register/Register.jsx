@@ -3,6 +3,8 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import signUpSchema from '../../schema/YupValidation';
+//helmet
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const initialValue = {
@@ -13,6 +15,7 @@ const initialValue = {
 }
 
 const Register = () => {
+    
     const {signUp,updateUserInformation,googleSignIn} = useContext(AuthContext)
     const navigate = useNavigate()
     const [registerError, setRegisterError] = useState();
@@ -66,6 +69,10 @@ const Register = () => {
 
 
     return (
+        <HelmetProvider>
+    <Helmet>
+                <title>BricksUniverse | Register</title>
+            </Helmet>
         <div className=' md:flex justify-center mt-5 mb-5'>
         
             <div className='bg-slate-200 lg:w-96  px-12 lg:px-8 py-3 rounded'>
@@ -139,6 +146,7 @@ const Register = () => {
                 </div>
             </div>
         </div>
+        </HelmetProvider>
     );
 };
 

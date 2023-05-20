@@ -32,7 +32,7 @@ const AllToys = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>All Toys</title>
+                <title>BricksUniverse | All Toys</title>
             </Helmet>
             <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
 
