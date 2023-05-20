@@ -44,7 +44,7 @@ const AddaToy = () => {
             const newToy = { photo,toyName,seller_name,seller_email,sub_category,price,rating,quantity,description };
                 console.log(newToy);
             //send data to the server
-             fetch('http://localhost:5000/toy', {
+             fetch('https://bricks-universe-server.vercel.app/toy', {
                  method: 'POST',
                  headers: {
                      'content-type': 'application/json'

@@ -40,7 +40,7 @@ const UpdateToy = () => {
           
             const updatedToy = { photo, toyName, seller_name, seller_email, sub_category, price, rating, quantity, description };
            
-            fetch(`http://localhost:5000/updateToy/${toyInformation._id}`,{
+            fetch(`https://bricks-universe-server.vercel.app/updateToy/${toyInformation._id}`,{
                 method: 'PUT',
                 headers:{
                     'content-type':'application/json'

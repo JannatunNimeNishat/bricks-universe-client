@@ -12,7 +12,7 @@ const MyToys = () => {
 
     //load initial data 
     useEffect(() => {
-        fetch(`http://localhost:5000/userAddedToys?seller_email=${user?.email}`, {
+        fetch(`https://bricks-universe-server.vercel.app/userAddedToys?seller_email=${user?.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('bricks-universe')}`
@@ -40,7 +40,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/toy/${id}`, {
+                fetch(`https://bricks-universe-server.vercel.app/toy/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -66,7 +66,7 @@ const MyToys = () => {
     const handleSortByPrice = (flag) => {
         setMyAddedToys()
         setActiveBtn(!activeBtn)
-        fetch(`http://localhost:5000/toyPriceWise?seller_email=${user?.email}`, {
+        fetch(`https://bricks-universe-server.vercel.app/toyPriceWise?seller_email=${user?.email}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

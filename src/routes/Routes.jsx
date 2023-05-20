@@ -34,8 +34,8 @@ const router = createBrowserRouter([
             {
                 path:'/allToys',
                 element:<AllToys></AllToys>,
-                loader:() =>fetch('http://localhost:5000/allToys')
-                // loader:() =>fetch('http://localhost:5000/allToys')
+                loader:() =>fetch('https://bricks-universe-server.vercel.app/allToys')
+                // loader:() =>fetch('https://bricks-universe-server.vercel.app/allToys')
             },
             {
                 path:'/myToys',
@@ -48,12 +48,12 @@ const router = createBrowserRouter([
             {
                 path:`/viewDetails/:id`,
                 element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({params}) => fetch(`https://bricks-universe-server.vercel.app/toy/${params.id}`)
             },
             {
                 path:'/updateToy/:id',
                 element:<UpdateToy></UpdateToy>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({params}) => fetch(`https://bricks-universe-server.vercel.app/toy/${params.id}`)
             },
             {
                 path:'/blogs',

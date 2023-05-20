@@ -12,7 +12,7 @@ const AllToys = () => {
     const [searchInput, setSearchInput] = useState("")
 
     useEffect(() => {
-        fetch(`http://localhost:5000/searchAllToys/${searchInput}`)
+        fetch(`https://bricks-universe-server.vercel.app/searchAllToys/${searchInput}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [searchInput])
@@ -21,7 +21,7 @@ const AllToys = () => {
 
     //search
     const handleSearch = (event) => {
-        fetch(`http://localhost:5000/searchAllToys/${searchInput}`)
+        fetch(`https://bricks-universe-server.vercel.app/searchAllToys/${searchInput}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }

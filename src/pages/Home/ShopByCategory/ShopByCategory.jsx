@@ -14,8 +14,7 @@ const ShopByCategory = () => {
 
     //loading category
     useEffect(() => {
-
-        fetch('http://localhost:5000/categories')
+        fetch('https://bricks-universe-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -23,17 +22,17 @@ const ShopByCategory = () => {
     //initial load action figure
     useEffect(() => {
         setTabToys()
-        fetch('http://localhost:5000/toys?sub_category=lego_action_figure')
+        fetch('https://bricks-universe-server.vercel.app/toys?sub_category=lego_action_figure')
             .then(res => res.json())
             .then(data => setTabToys(data))
-    }, [])
+    }, [categories])
 
 
     //after each tab click
     const tabToy = (category_name) => {
         setTabToys();
       
-        fetch(`http://localhost:5000/toys?sub_category=${category_name}`)
+        fetch(`https://bricks-universe-server.vercel.app/toys?sub_category=${category_name}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -59,7 +58,7 @@ const ShopByCategory = () => {
 
                     <div className="tabs tabs-boxed bg-[#ee5684]  py-3">
                         {
-                            categories?.map(category => (
+                          categories &&  categories?.map(category => (
                                 <Tab active className=' text-center w-full lg:w-1/4 mx-auto py-1 cursor-pointer'
                                     key={category._id}
                                 >
