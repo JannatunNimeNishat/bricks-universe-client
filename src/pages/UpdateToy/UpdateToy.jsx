@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const UpdateToy = () => {
     const toyInformation = useLoaderData()
@@ -72,6 +73,10 @@ const UpdateToy = () => {
 
 
     return (
+        <HelmetProvider>
+            <Helmet>
+                <title>BricksUniverse | Update Toy</title>
+            </Helmet>
         <div className=' bg-cover bg-center pb-8'
         >
             <div className='my-container pt-5 mb-3'>
@@ -197,6 +202,7 @@ const UpdateToy = () => {
                 </div>
             </div>
         </div>
+        </HelmetProvider>
     );
 };
 

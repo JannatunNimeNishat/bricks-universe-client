@@ -81,7 +81,7 @@ const MyToys = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>My Toys</title>
+                <title>BricksUniverse | My Toys</title>
             </Helmet>
             <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
                 <div>

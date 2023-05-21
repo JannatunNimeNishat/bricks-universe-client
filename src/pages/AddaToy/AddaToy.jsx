@@ -72,7 +72,7 @@ const AddaToy = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>Add a Toys</title>
+                <title>BricksUniverse | Add a Toys</title>
             </Helmet>
         <div className=' bg-cover bg-center mb-20'
         >

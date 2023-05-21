@@ -13,7 +13,7 @@ const ViewDetails = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>View details</title>
+                <title>BricksUniverse | View details</title>
             </Helmet>
         <div className='mt-8 mb-8 my-container'>
             <div className='grid grid-cols-2 gap-8'>

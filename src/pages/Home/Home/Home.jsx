@@ -6,19 +6,18 @@ import CreativeApproach from '../CreativeApproach/CreativeApproach';
 //helmet
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Reviews from '../Reviews/Reviews';
-import FeaturedSet from '../FeaturedSets/FeaturedSet';
+
 const Home = () => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>Home</title>
+                <title>BricksUniverse | Home</title>
             </Helmet>
             <div>
                 <Carousel></Carousel>
                 <Gallery></Gallery>
                 <ShopByCategory></ShopByCategory>
                 <CreativeApproach></CreativeApproach>
-                <FeaturedSet></FeaturedSet>
                 <Reviews></Reviews>
             </div>
         </HelmetProvider>

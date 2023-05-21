@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import g1_ from '../../../assets/img/g1_.jpg'
 import g2 from '../../../assets/img/g2.jpg'
 import g3 from '../../../assets/img/g3.jpg'
 import g4 from '../../../assets/img/g4.jpg'
 import LazyLoad from 'react-lazy-load';
+//aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Gallery = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     return (
-        <div className=' my-container lg:h-[100vh]     grid grid-cols-1 lg:grid-cols-3 gap-5 mt-36 mb-8'>
+        <div className=' my-container lg:h-[100vh]     grid grid-cols-1 lg:grid-cols-3 gap-5 mt-36 mb-8' data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
             <div className='lg:flex flex-col gap-5 lg:h-[100vh]'>
                 <div className='overflow-hidden h-1/2 relative hover:opacity-75 transition duration-200'>
 

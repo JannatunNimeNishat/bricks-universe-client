@@ -4,12 +4,18 @@ import 'react-tabs/style/react-tabs.css';
 import TabItems from './TabItems';
 import { Link, useNavigation } from 'react-router-dom';
 import Loading from '../../Loading/Loading';
+//aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const ShopByCategory = () => {
 
     const [categories, setCategories] = useState()
     const [tabToys, setTabToys] = useState();
 
-
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
 
     //loading category
@@ -47,7 +53,8 @@ const ShopByCategory = () => {
     return (
 
 
-        <div className='mt-32 mb-12 my-container'>
+        <div className='mt-32 mb-12 my-container' data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom">
 
             <h3 className='text-center  my-active'>SHOP BY CATEGORY</h3>
             <h3 className='text-5xl text-center font-bold mt-4 mb-16 my-primary-color'>We design toys not just for <br /> kids but with kids</h3>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Rating } from '@smastrom/react-rating'
 import { Link, useNavigate } from 'react-router-dom';
 import '@smastrom/react-rating/style.css'
@@ -6,15 +6,21 @@ import '@smastrom/react-rating/style.css'
 
 import toast, { Toaster } from 'react-hot-toast';
 import LazyLoad from 'react-lazy-load';
-
+//aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const TabItems = ({ tabToy }) => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     const { _id, photo, toyName, price, rating } = tabToy || {};
 
 
     return (
 
-        <div className="card card-compact   bg-base-100 shadow-xl mt-5">
+        <div className="card card-compact   bg-base-100 shadow-xl mt-5" data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom">
             <figure className='overflow-hidden lg:h-[300px] rounded-2xl'>
 
                 <LazyLoad>
