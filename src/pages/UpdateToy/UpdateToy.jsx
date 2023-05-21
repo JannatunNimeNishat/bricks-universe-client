@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const UpdateToy = () => {
     const toyInformation = useLoaderData()
 
-
+    console.log(toyInformation);
     const { user } = useContext(AuthContext)
 
 
@@ -40,7 +40,7 @@ const UpdateToy = () => {
           
             const updatedToy = { photo, toyName, seller_name, seller_email, sub_category, price, rating, quantity, description };
            
-            fetch(`https://bricks-universe-server.vercel.app/updateToy/${toyInformation._id}`,{
+            fetch(`https://bricks-universe-server.vercel.app/updateToy/${toyInformation?._id}`,{
                 method: 'PUT',
                 headers:{
                     'content-type':'application/json'
@@ -81,16 +81,17 @@ const UpdateToy = () => {
                         <h3 className='text-3xl mt-5'>Update "{toyInformation.toyName}" Information</h3>
 
                         <form onSubmit={handleSubmit} className='mt-5'>
-
-                            <input type="text" name='photo' placeholder="Enter your toy's photoURL" className="input input-bordered w-full"
+                            <label >ImageURL:</label>
+                            <input type="text" name='photo' placeholder="Enter your toy's photoURL" className="input input-bordered w-full mb-3"
                                 value={toyInformation.photo}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                             />
 
                             <br />
-                            <br />
-                            <input type="text" name='tName' placeholder="Enter your toy's name" className="input input-bordered w-full"
+                            
+                            <label className=''>Toy Name:</label>
+                            <input type="text" name='tName' placeholder="Enter your toy's name" className="input input-bordered w-full mb-3"
 
                                 value={toyInformation.toyName}
                                 onBlur={handleBlur}
@@ -98,26 +99,25 @@ const UpdateToy = () => {
                             />
 
 
-
-
                             <br />
-                            <br />
+                           
 
-                            <div className='flex gap-3'>
+                            <label >Seller Name:</label>
 
                                 <input type="text"
                                     name='seller_name'
                                     placeholder="Enter seller_name"
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full mb-3"
                                     value={user?.displayName}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
 
                                 />
 
+                            <br />
+                            <label >Seller Email:</label>
 
-
-                                <input type="email" name='seller_email' placeholder="Enter seller email" className="input input-bordered w-full"
+                                <input type="email" name='seller_email' placeholder="Enter seller email" className="input input-bordered w-full mb-3"
                                     value={user?.email}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
@@ -125,10 +125,11 @@ const UpdateToy = () => {
                                 />
 
 
-                            </div>
+                            
                             <br />
-                            <div className='flex gap-3 '>
-                                <select className="select select-bordered w-1/2"
+                            
+                            <label >Pick sub-category:</label>
+                                <select className="select select-bordered  w-full mb-3"
                                     name='sub_category'
                                     value={toyInformation.sub_category}
                                     onBlur={handleBlur}
@@ -141,38 +142,46 @@ const UpdateToy = () => {
 
                                 </select>
 
-                                <input className='input input-bordered w-full' placeholder='Enter the price of your toy' type="number" name='price'
+                                <br />
+
+                                <label >Price: <small className='ml-3'>(changeable)</small></label>
+
+                                <input className='input input-bordered w-full mb-3' placeholder='Enter the price of your toy' type="number" name='price'
                                     value={values.price}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                 />
-                            </div>
+                           
 
                             <br />
-                            <div className='flex '>
-                                <div className="form-control md:w-1/2">
+                            <label >Rating:</label>
+                           
+                                <div className="form-control ">
 
 
-                                    <input type="text" name='rating' placeholder="Enter rating" className="input input-bordered w-full"
-                                        value={values.rating}
+                                    <input type="text" name='rating' placeholder="Enter rating" className="input input-bordered w-full mb-3"
+                                        value={toyInformation.rating}
                                         onBlur={handleBlur}
                                         onChange={handleChange}
 
                                     />
 
                                 </div>
-                                <div className="form-control md:w-1/2 ml-4">
-
-
-                                    <input type="number" name='quantity' placeholder="Enter the quantity of this toy" className="input input-bordered w-full"
+                                {/* <div className="form-control md:w-1/2 ml-4"> */}
+                                
+                               
+                                <label >Quantity: <small className='ml-3'>(changeable)</small></label>
+                                    <input type="number" name='quantity' placeholder="Enter the quantity of this toy" className="input input-bordered w-full mb-3"
                                         value={values.quantity}
                                         onBlur={handleBlur}
                                         onChange={handleChange}
                                     />
 
-                                </div>
-                            </div>
+                                
+                                
+                            
                             <br />
+                            <label >Description: <small className='ml-3'>(changeable)</small></label>
                             <div>
                                 <textarea placeholder='Write detail description of your toy' className=' p-2 w-full' name="description" id="" cols="30" rows="5"
                                     value={values.description}
