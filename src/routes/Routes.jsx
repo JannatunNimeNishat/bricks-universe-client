@@ -35,7 +35,6 @@ const router = createBrowserRouter([
                 path:'/allToys',
                 element:<AllToys></AllToys>,
                 loader:() =>fetch('https://bricks-universe-server.vercel.app/allToys')
-                // loader:() =>fetch('https://bricks-universe-server.vercel.app/allToys')
             },
             {
                 path:'/myToys',
