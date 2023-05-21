@@ -14,7 +14,7 @@ const CreativeApproach = () => {
     }, [])
 
     return (
-        <div className='mt-32  pb-16 bg-white'>
+        <div className='mt-32  pb-16 bg-white px-5 lg:px-0'>
             <div className='my-container grid grid-cols-1 lg:grid-cols-5 lg:gap-10 py-10'>
 
                 <div className='col-span-2' data-aos="fade-up"

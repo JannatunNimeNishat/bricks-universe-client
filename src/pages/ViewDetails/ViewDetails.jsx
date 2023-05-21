@@ -16,7 +16,7 @@ const ViewDetails = () => {
                 <title>BricksUniverse | View details</title>
             </Helmet>
         <div className='mt-8 mb-8 my-container'>
-            <div className='grid grid-cols-2 gap-8'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
                 <div className='w-full h-full flex flex-col gap-5'>
                     
                     <img className='w-full   ease-in duration-500' src={photo} alt="" />
@@ -28,7 +28,7 @@ const ViewDetails = () => {
                         <img className='px-3 py-3 brightness-50 hover:brightness-75 cursor-pointer ease-in duration-75' src={photo} alt="" />
                     </div>
                 </div>
-                <div className='space-y-4'>
+                <div className='space-y-4 px-5 lg:px-0'>
                     <h3 className='text-4xl font-semibold'>{toyName}</h3>
                     <p className='text-[#ee5684] text-xl  font-semibold'>${price}</p>
                     <p>{description}</p>
@@ -47,7 +47,7 @@ const ViewDetails = () => {
                 </div>
 
             </div>
-            <div className='mt-16'>
+            <div className='mt-16 px-5 lg:px-0'>
                 <Tabs>
                     <TabList>
                         <Tab>Description</Tab>
@@ -60,8 +60,8 @@ const ViewDetails = () => {
 
                     </TabPanel>
 
-                    <TabPanel className='mt-8'>
-                        <div className='grid grid-cols-2'>
+                    <TabPanel className='mt-8 '>
+                        <div className='grid grid-cols-1 lg:grid-cols-2'>
                             <div className='space-y-3'>
                                 <h3 className='text-3xl font-bold'>Reviews</h3>
                                 <p>There are no reviews yet.</p>

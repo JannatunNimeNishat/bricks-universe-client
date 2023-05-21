@@ -20,11 +20,11 @@ const RelatedProducts = ({ sub_category }) => {
     
     // console.log(relatedProducts);
     return (
-        <div className=''>
+        <div className='mt-5'>
             <h3 className='text-3xl font-semibold '>Related Products: </h3>
         
            
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5 px-8 lg:px-0'>
             {
                 relatedProducts && relatedProducts.map(relatedProduct => (
                     <div key={relatedProduct._id} className="card card-compact  bg-base-100 shadow-xl px-5">

@@ -15,7 +15,7 @@ const Gallery = () => {
     }, [])
 
     return (
-        <div className=' my-container lg:h-[100vh]     grid grid-cols-1 lg:grid-cols-3 gap-5 mt-36 mb-8' data-aos="fade-up"
+        <div className=' my-container lg:h-[100vh]  px-5 lg:px-0   grid grid-cols-1 lg:grid-cols-3 gap-5 mt-36 mb-8' data-aos="fade-up"
             data-aos-anchor-placement="top-bottom">
             <div className='lg:flex flex-col gap-5 lg:h-[100vh]'>
                 <div className='overflow-hidden h-1/2 relative hover:opacity-75 transition duration-200'>

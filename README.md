@@ -1,6 +1,6 @@
 # Welcome to Bricks Universe - A Lego Shop (Full-Stack)
 
-### Website Link:  https://bricks-universe.web.app/
+### Website Live Link:  https://bricks-universe.web.app/
 
 ### Client Side Code:  https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-client-side-JannatunNimeNishat
 
