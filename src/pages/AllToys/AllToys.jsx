@@ -60,7 +60,7 @@ const AllToys = () => {
 
                 <div className="overflow-x-auto mt-10">
                     <table className="table w-full">
-                        {/* head */}
+                       
                         <thead>
                             <tr className='text-center'>
                                 <th></th>
@@ -74,7 +74,7 @@ const AllToys = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* row 1 */}
+                           
                             {
                                 toys?.map((toy, index) => <ToyRows
                                     key={toy._id}
