@@ -7,6 +7,7 @@ import CreativeApproach from '../CreativeApproach/CreativeApproach';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Reviews from '../Reviews/Reviews';
 import OurBlog from '../OurBlog/OurBlog';
+import Clients from '../Clients/Clients';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
                 <Gallery></Gallery>
                 <ShopByCategory></ShopByCategory>
                 <CreativeApproach></CreativeApproach>
+                <Clients></Clients>
                 <Reviews></Reviews>
                 <OurBlog></OurBlog>
             </div>

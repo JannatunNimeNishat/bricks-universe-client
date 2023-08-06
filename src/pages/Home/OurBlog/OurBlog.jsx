@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,16 +11,24 @@ import b4 from '../../../assets/blog/b4.jpg'
 import b5 from '../../../assets/blog/b5.jpg'
 import { Autoplay, Pagination } from 'swiper';
 
-
+//aos
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const OurBlog = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     return (
-        <div className='bg-white '>
+        <div className='bg-white ' data-aos="fade-up">
             <div className='my-container px-5 lg:px-0 py-20'>
 
                 <h3 className='text-center  my-active'>OUR BLOG</h3>
                 <h3 className='text-2xl lg:text-5xl text-center font-bold lg:mt-4 mb-3 lg:mb-16 my-primary-color'>Latest News</h3>
 
+                {/* slider cards */}
                 <div className='py-3 '>
                     <Swiper
                         slidesPerView={1}
