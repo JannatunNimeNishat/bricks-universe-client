@@ -8,7 +8,7 @@ const Blogs = () => {
                 <title>BricksUniverse | Blogs</title>
             </Helmet>
             <div>
-                <div className='mt-14 my-container mb-10'>
+                <div className='mt-14 my-container mb-10 px-5 lg:px-0'>
                     {/* q.1 */}
                     <div className='bg-[#D9D9D9] p-5 rounded'>
                         <h3 className='text-xl font-semibold'>Q.1 What is an access token and refresh token? How do they work and where should we store them on the client-side?</h3>

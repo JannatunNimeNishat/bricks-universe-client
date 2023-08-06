@@ -73,32 +73,7 @@ const UpdateToy = () => {
                 }
             })
 
-
-            /* fetch(`https://bricks-universe-server.vercel.app/updateToy/${toyInformation?._id}`,{
-                method: 'PUT',
-                headers:{
-                    'content-type':'application/json'
-                },
-                body: JSON.stringify(updatedToy)
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                if(data.modifiedCount>0){
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Toy has been updated',
-                        showConfirmButton: false,
-                        timer: 1500
-                      }) 
-                }
-               
-                navigate('/myToys')
-            }) */
-
-
-
-            // action.resetForm();
+           
         }
     })
 
@@ -112,12 +87,12 @@ const UpdateToy = () => {
             <Helmet>
                 <title>BricksUniverse | Update Toy</title>
             </Helmet>
-            <div className=' bg-cover bg-center pb-8'
+            <div className=' bg-cover bg-center pb-8 px-5 lg:px-0'
             >
                 <div className='my-container pt-5 mb-3'>
 
                     <div className='bg-slate-200  pt-3 px-5 py-5 '>
-                        <div className='px-20 '>
+                        <div className='lg:px-20 '>
                             <h3 className='text-3xl mt-5'>Update "{toyInformation.toyName}" Information</h3>
 
                             <form onSubmit={handleSubmit} className='mt-5'>

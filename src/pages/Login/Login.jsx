@@ -53,7 +53,7 @@ const Login = () => {
             <Helmet>
                 <title>BricksUniverse | Login</title>
             </Helmet>
-        <div className='lg:h-[calc(100vh-76px)] md:flex justify-center mt-5'>
+        <div className='lg:h-[calc(100vh-76px)] md:flex justify-center mt-5 px-5 lg:px-0 mb-5 lg:mb-0'>
             <div className='bg-slate-200 lg:w-96 lg:h-[450px] px-12 lg:px-8 py-3 rounded'>
                 <h3 className='text-2xl font-semibold mt-3'>Sign Up</h3>
                 <form onSubmit={handleSubmit} className='mt-8 flex flex-col '>

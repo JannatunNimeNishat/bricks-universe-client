@@ -73,7 +73,7 @@ const Register = () => {
     <Helmet>
                 <title>BricksUniverse | Register</title>
             </Helmet>
-        <div className=' md:flex justify-center mt-5 mb-5'>
+        <div className=' md:flex justify-center mt-5 mb-5 px-5 lg:px-0'>
         
             <div className='bg-slate-200 lg:w-96  px-12 lg:px-8 py-3 rounded'>
           

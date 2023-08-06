@@ -83,7 +83,7 @@ const MyToys = () => {
             <Helmet>
                 <title>BricksUniverse | My Toys</title>
             </Helmet>
-            <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)]'>
+            <div className='my-container mt-10 mb-10 min-h-[calc(100vh-68px)] px-5 lg:px-0'>
                 <div>
                     <p className='text-xl font-semibold'>Sort by price:</p>
 

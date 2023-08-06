@@ -74,12 +74,12 @@ const AddaToy = () => {
             <Helmet>
                 <title>BricksUniverse | Add a Toys</title>
             </Helmet>
-        <div className=' bg-cover bg-center mb-20'
+        <div className=' bg-cover bg-center mb-20 px-5 lg:px-0'
         >
             <div className='my-container pt-5  '>
 
                 <div className='bg-slate-200  pt-8 px-5 pb-8 '>
-                    <div className='px-20 '>
+                    <div className='lg:px-20 '>
                         <h3 className='text-3xl mt-5'>Add a toy</h3>
 
                         <form onSubmit={handleSubmit} className='mt-5'>
