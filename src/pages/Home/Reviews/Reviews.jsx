@@ -11,10 +11,10 @@ const Reviews = () => {
     }, [])
     return (
 
-        <div className='mt-20 mb-20 lg:h-[90vh] bg-cover bg-center ' style={{ backgroundImage: `url("${review_bg}")` }}
+        <div className=' mt-20 mb-20 lg:h-[90vh] bg-cover bg-center ' style={{ backgroundImage: `url("${review_bg}")` }}
         data-aos="fade-up"
         >
-            <div className='hero-overlay bg-opacity-90 lg:flex items-center px-3'  
+            <div className='hero-overlay bg-opacity-90 lg:flex items-center px-3 border'  
     >
                 <div className='my-container grid grid-cols-1 lg:grid-cols-3 gap-8 py-20  '>
                     <div className='text-white lg:flex items-center'>
